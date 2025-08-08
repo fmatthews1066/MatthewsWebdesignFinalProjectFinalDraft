@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="homepage" content="Microlite 20 toolkit">
+        <title>Microlite 20 toolkit: Home</title>
+           <link rel="stylesheet" href="stylesheet.css">
+        <!--Inline styling for elements-->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            
+            table {
+                text-align: center;
+                border-spacing: 20px;
+                justify-content: center;
+                border-collapse: collapse;
+            }
+    
+
+
+            .main {
+                display: flex;
+                
+            }
+
+
+            .sidebar {
+                flex: 30%
+                
+            }
+
+
+            .aboutme { 
+                flex: 70%
+            }
+
+
+            .footer {
+                padding: 20px;
+                text-align: center;
+                background: lightslategray;
+            }
+
+            @media screen and (max-width: 700px) { .main, .navigation { flex-direction: column; } }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+        <header class="header">
+            <h1>Welcome to the Microlite 20 Toolkit</h1>
+            Microlite 20 is a barebones ruleset for a dice based tabletop RPG, like dungeons and dragons, without the complexity <br>
+            and need to spend hundreds of dollars on rule books.
+
+        </header>
+
+        <!--Link to the rules of the game-->>
+        <a href="https://donjon.bin.sh/m20/Microlite20.pdf">To access the full set of rules, go here.</a>
+        <br>
+        <br>
+        </div>
+        <!--Navigation bar allows navigation between pages-->
+        <div class="navigation">
+            <table style="width: 50%; margin: 30px;">
+                <tr>
+                    <td><a href="index.html">Home</a></td>
+                    <td><a href="diceroller.html">Roll the Dice!</a></td>
+                    <td><a href="Charactersheet.html">My Character</a></td>
+                    <td><a href="randomencountergenerator.html">Random Encounter Generator</a></td>
+
+
+                </tr>
+            </table>
+
+        <!--About the creator (me)-->>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <h3>The Man Himself</h3>
+                <img src="helmetselfie.jpg" style="width: 300px; height: auto"; alt="The Author">
+                <p>(I'm the one in the helmet)</p>
+            </div>
+            <div class="aboutme">
+                <h2>About Me</h2>
+                <p>I'm a guy living in northern Vermont who's taking a webdesign course. I've been interested in tabletop gaming for many years, <br>
+                    though the perpetual challenge is finding the folks to roll dice with.
+                </p>
+
+            </div>
+        </div>
+        <br>
+        <br>
+ 
+
+       
+        <!--Explanation for anyone who happens to stumble across this in the wild.-->
+        <footer>
+            <p>This website is a project created for a webdesign class. It is not meant to be a fully fleshed out version of Microlite 20.<br>
+                If you've somehow stumbled across this and found it useful, don't hesitate to reach out to <br>
+                fmatthews1066@gmail.com
+            </p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "Creaturename": "badger",
+        "HP": "1",
+        "AC": "15",
+        "Damage": "1"
+    },
+
+    {
+        "Creaturename": "dire rat",
+        "HP": "5",
+        "AC": "15",
+        "Damage": "2"
+    },
+
+    {
+        "Creaturename": "owlbear",
+        "HP": "52",
+        "AC": "15",
+        "Damage": "8"
+    },
+
+    {
+        "Creaturename": "troll",
+        "HP": "63",
+        "AC": "16",
+        "Damage": "12"
+    },
+
+    {
+        "Creaturename": "wolf",
+        "HP": "13",
+        "AC": "14",
+        "Damage": "4"
+    }
+
+]

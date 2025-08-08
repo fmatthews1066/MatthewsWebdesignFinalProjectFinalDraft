@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Printable Character Sheet <Form:get></Form:get></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <table style="border: 1px; border-style: solid; border-collapse: collapse;">
+    <thead><h2>Character Sheet</h2></thead>
+
+                        <tr style="border: 1px; border-style: solid; margin: 30px;">
+                            <td style=" border: 1px; border-style: solid; margin: 30px; padding: 40px;">
+                                Name: <br>
+                                <p id="characterName"></p>
+
+                            </td>
+                            <td style="border: 1px; border-style: solid; margin: 30px; padding: 40px;">
+                                Race: <br>
+                                <p id="race"></p>
+
+                            </td>
+                            <td style="border: 1px; border-style: solid; margin: 30px; padding: 40px;">
+                                Class: <br>
+                                <p id="class"></p>
+
+                            </td>
+                            <td style="border: 1px; border-style: solid; margin: 30px; padding: 40px;">
+                                Level: <br>
+                                <p id="level"></p>
+
+                            </td>
+                        </tr >
+                        <tr style="border: 1px; border-style: dotted; margin: 30px;">
+                            <td style="margin: 30px; padding: 30px;">
+                                Max HP: <br>
+                                <p id="maxHP"></p>
+ 
+                            </td>
+                            <td style="border: 1px; border-style: solid; margin: 30px; padding: 30px;">
+                                Current HP: <br>
+                                <p id="currentHP"></p>
+
+                            </td>
+                            <td style="border: 1px; border-style: solid; margin: 30px; padding: 30px;">
+                                AC: <br>
+                                <p id="AC"></p>
+
+
+                            </td>
+                        </tr>
+                    </table>
+                    
+    <script>
+
+        const urlParams = new URLSearchParams (window.location.search);
+        const characterName = urlParams.get("characterName");
+        document.getElementById("characterName").textContent = characterName;
+
+        const race = urlParams.get("race");
+        document.getElementById("race").textContent = race;
+
+        const classType = urlParams.get("class");
+        document.getElementById("class").textContent = classType;
+
+        const level = urlParams.get("level");
+        document.getElementById("level").textContent = level;
+
+        const maxHP = urlParams.get("maxHP");
+        document.getElementById("maxHP").textContent = maxHP;
+
+        const currentHP = urlParams.get("currentHP");
+        document.getElementById("currentHP").textContent = currentHP;
+
+        const AC = urlParams.get("AC");
+        document.getElementById("AC").textContent = AC;
+
+        console.log(currentHP);
+        console.log(maxHP);
+
+
+
+    
+    </script>
+</body>
+</html>

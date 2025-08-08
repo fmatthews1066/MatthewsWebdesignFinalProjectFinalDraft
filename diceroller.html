@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="homepage" content="Microlite 20 toolkit">
+        <title>Microlite 20 toolkit: Dice Roller</title>
+           <link rel="stylesheet" href="stylesheet.css">
+        <!--Inline styling for elements-->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            
+            table {
+                text-align: center;
+                border-spacing: 20px;
+                justify-content: center;
+                border-collapse: collapse;
+            }
+    
+
+
+            .main {
+                display: flex;
+                
+            }
+
+            .dice {
+                border-style: dotted;
+                margin: 30px;
+                padding: 30px;
+            }
+
+
+
+            .footer {
+                padding: 20px;
+                text-align: center;
+                background: lightslategray;
+            }
+
+            @media screen and (max-width: 900px) { .main, .navigation { flex-direction: column; } }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+        <header class="header">
+            <h1>Welcome to the Microlite 20 Toolkit</h1>
+            Microlite 20 is a barebones ruleset for a dice based tabletop RPG, like dungeons and dragons, without the complexity <br>
+            and need to spend hundreds of dollars on rule books.
+
+        </header>
+        <!--Navigation bar allows navigation between pages-->
+        </div>
+        <div class="navigation">
+            <table style="width: 50%; margin: 30px;">
+                <tr>
+                    <td><a href="index.html">Home</a></td>
+                    <td><a href="diceroller.html">Roll the Dice!</a></td>
+                    <td><a href="Charactersheet.html">My Character</a></td>
+                    <td><a href="randomencountergenerator.html">Random Encounter Generator</a></td>
+
+
+                </tr>
+            </table>
+        </div>
+        <p>Under Construction</p>
+
+        <p>Don't have a collection of dice yet? use the tools below to "roll" for you!</p> <br>
+
+        <!--Displays random die roll after clicking on a button-->>
+        <div class="main">
+            <div class="dice">
+                <p>Roll a D20:</p>
+                <button onclick="rollD20()" >Rolling...</button>
+                <p>Your Roll:</p>
+                <p id="D20roll"></p>
+            </div>
+
+            <div class="dice">
+                <p>Roll a D12:</p>
+                <button onclick="rollD12()" >Rolling...</button>
+                <p>Your Roll:</p>
+                <p id="D12roll"></p>
+            </div>
+
+            <div class="dice">
+                <p>Roll a D10:</p>
+                <button onclick="rollD10()" >Rolling...</button>
+                <p>Your Roll:</p>
+                <p id="D10roll"></p>
+            </div>
+
+            <div class="dice">
+                <p>Roll a D8:</p>
+                <button onclick="rollD8()" >Rolling...</button>
+                <p>Your Roll:</p>
+                <p id="D8roll"></p>
+            </div>
+
+            <div class="dice">
+                <p>Roll a D6:</p>
+                <button onclick="rollD6()" >Rolling...</button>
+                <p>Your Roll:</p>
+                <p id="D6roll"></p>
+            </div>
+
+        </div>
+
+        <!--Tool that allows for combat with a creature. Enter the data, and click fight to "fight" the creature
+        Tool determines if an attack hits, what happens after the hit, and when the creature has been defeated.-->
+
+        <h3>Want to fight something? Use the tool below!</h3>
+
+        <input type="text" id="creature" name="creature" placeholder="What are you fighting?" ><br>
+        <input type="number" id="creatureHP" name="creatureHP" placeholder="What's the creature's HP?" required><br>
+        <input type="number" id="creatureAC" name="creatureAC" placeholder="What's your creature's AC?" required><br>
+
+        <button onclick="fight()" >Click to Attack!</button>
+
+        <p id="hitormiss"></p>
+        <p>The creature's current HP is...</p>
+        <p id = "currentHP"></p>
+
+        <p id="victoryMessage"></p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+
+       <script>
+            let damage = 0  //sets initial creature damage
+            
+            // "fight" function colleccts data about the creature and performs dice rolls, determining the outcomes of those rolls
+            // and provides feedback to the user.
+
+            function fight (){
+                let targetHP = document.getElementById("creatureHP").value;
+                let targetAC = Number(document.getElementById("creatureAC").value);
+                let creature = document.getElementById("creature").value;
+                let roll_20 = Math.floor(Math.random() * (20))+1;
+                
+                console.log(targetAC);
+                console.log(roll_20);
+
+                console.log(targetAC<roll_20)
+                let currentHP = targetHP
+                
+
+                if (targetAC<roll_20) {
+                    document.getElementById("hitormiss").textContent = "Hit!";
+                    let roll_6 = Math.floor(Math.random() * (6))+1;
+                    damage = damage + roll_6
+                    currentHP = targetHP - damage;
+                    console.log(damage)
+                    console.log(currentHP)
+                    document.getElementById("currentHP").textContent = currentHP;
+
+                    if (currentHP<=0){
+
+                        document.getElementById("victoryMessage").textContent = "Victory is yours! " + creature +" has been defeated."
+
+                    }
+
+                }
+
+                else {
+                    document.getElementById("hitormiss").textContent = "Miss!";
+
+                }
+
+            }
+        //rolls "dice" based on number of sides by generating a random number between 1 and the number if sides on the die.
+
+            function rollD20(){
+                let roll20 = Math.floor(Math.random() * (20))+1;
+                document.getElementById("D20roll").textContent = roll20;
+            }
+
+            function rollD12(){
+                let roll12 = Math.floor(Math.random() * (12))+1;
+                document.getElementById("D12roll").innerHTML = roll12;
+            }
+
+            function rollD10(){
+                let roll10 = Math.floor(Math.random() * (10))+1;
+                document.getElementById("D10roll").innerHTML = roll10;
+            }
+
+                        function rollD8(){
+                let roll8 = Math.floor(Math.random() * (8))+1;
+                document.getElementById("D8roll").innerHTML = roll8;
+            }
+
+                        function rollD6(){
+                let roll6 = Math.floor(Math.random() * (6))+1;
+                document.getElementById("D6roll").innerHTML = roll6;
+            }
+       </script>
+        
+        <!--Explanation for anyone who happens to stumble across this in the wild.-->
+        <footer>
+            <p>This website is a project created for a webdesign class. It is not meant to be a fully fleshed out version of Microlite 20.<br>
+                If you've somehow stumbled across this and found it useful, don't hesitate to reach out to <br>
+                fmatthews1066@gmail.com
+            </p>
+        </footer>
+    </body>
+</html>
